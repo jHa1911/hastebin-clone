@@ -7,7 +7,9 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('index');
+    const code = `welcome to Wastebin!
+Paste your code here and share it with others!`
+    res.render('index', { code });
 });
 
 
