@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    background-color: #002b36;
+}
+
+.wrapper {
+    display: flex;
+    font-size: 1rem;
+}
+
+.line-numbers {
+    background-color: #073642;
+    color: #839496;
+    font-family: monospace;
+    padding: 1em;
+    text-align: end;
+}
+
+pre {
+    margin: 0;
+}
+
+.code-display {
+    color: #839496;
+    font-family: monospace;
+    padding: 1em;
+    width: 100%;
+}
