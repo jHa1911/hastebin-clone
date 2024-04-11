@@ -8,8 +8,8 @@ const mongoURL = process.env.MONGODB_URI || 'mongodb+srv://surajdb:WVaX03fy1hjiG
 
 // Connect to MongoDB
 mongoose.connect(mongoURL)
-.then(() => console.log('Connected to MongoDB'))
-.catch((err) => console.error('Error connecting to MongoDB:', err));
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((err) => console.error('Error connecting to MongoDB:', err));
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     const code = `welcome to Wastebin!
 
 Paste your code here and share it with others!`
-    res.render('index', { code });
+    res.render('index', { code, language: 'plaintext' });
 });
 
 app.get('/new', (req, res) => {
@@ -38,17 +38,27 @@ app.post('/save', async (req, res) => {
     } catch (e) {
         res.render('new', { value })
     }
-    });
+});
 
-/*app.get('/:id', async (req, res) => {
+app.get("/:id/duplicate", async (req, res) => {
+    const id = req.params.id
+    try {
+        const document = await Document.findById(id)
+        res.render("new", { value: document.value })
+    } catch (e) {
+        res.redirect(`/${id}`)
+    }
+})
+
+app.get('/:id', async (req, res) => {
     const id = req.params.id;
     try {
         const document = await Document.findById(id)
-        res.render('index', { code: document.value })
+        res.render('index', { code: document.value, id })
     } catch (e) {
         res.redirect('/')
     }
-}) */
+})
 
 
 
@@ -58,8 +68,8 @@ app.post('/save', async (req, res) => {
 
 
 
-    app.listen(port, () => {
-        console.log(`Server is running on port ${port}`);
-    });
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
 
 module.exports = app;
