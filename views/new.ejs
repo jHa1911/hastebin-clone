@@ -9,13 +9,13 @@
     <title>Wastebin</title>
 </head>
 <body>
-    <%- include('_buttons.ejs') %>
-    <form action="/save" method="post">
+    <form action="/save" method="POST">
+        <%- include('_buttons.ejs', { canSave: true}) %>
         <div class="wrapper">
             <div class="line-numbers">
                 &gt;
             </div>
-            <textarea autofocus id="input" name="value"><%= locals.value %>
+            <textarea autofocus name="value"><%= locals.value %>
             </textarea>
 
         </div>

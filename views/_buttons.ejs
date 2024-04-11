@@ -2,7 +2,8 @@
     <a href="/" class="logo">Wastebin</a>
     <div class="buttons">
         <a href="/new" class="button">New</a>
-        <a href="/list" class="button">List</a>
-        <a href="/save" class="button">Save</a>
+        <% if (locals.canSave) { %>
+            <button class="btn" type="submit">Save</button>
+        <% } %>
     </div>
 </div>
