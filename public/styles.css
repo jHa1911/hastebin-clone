@@ -12,7 +12,7 @@ body {
     background-color: #073642;
     color: #839496;
     font-family: monospace;
-    padding: 1em;
+    padding: 1rem;
     text-align: end;
 }
 
@@ -25,4 +25,41 @@ pre {
     font-family: monospace;
     padding: 1em;
     width: 100%;
+}
+
+.buttons-wrapper {
+    background-color: #068aab;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding:  1rem;
+    opacity: .5;
+}
+
+.logo {
+    font-size: 2rem;
+    font-family: monospace;
+    text-align: center;
+    color: white;
+    width: 100%;
+    display: inline-block;
+    text-decoration: none;
+
+
+}
+
+/* new */
+
+textarea {
+    background-color: transparent;
+    width: 100%;
+    resize: none;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    color: #839496;
+    border: none;
+    outline: none;
+    min-height: calc(100vh - 2rem);
+    font-family: monospace;
+    font-size: 1rem;
 }
